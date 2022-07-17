@@ -1,0 +1,50 @@
+﻿<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand">CSV</a>
+                    <form class="d-flex">
+                        <button class="btn" type="button" onclick="modalcsv.show()">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+            <div id="errordiv" class="container invisible">
+            </div>
+            <div id="tablecontainer" class="container invisible">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Serveur</th>
+                            <th scope="col">Etape</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalcsv" tabindex="-1" aria-labelledby="modalcsvlabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalcsvlabel">Sélectionner un CSV</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div>
+                        <div class="list-group" id="modalcsvbody"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/functions.js"></script>
+    </body>
+</html>
