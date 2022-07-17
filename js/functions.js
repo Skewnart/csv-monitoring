@@ -1,4 +1,7 @@
-﻿var displayerror = function (hasError, message = undefined){
+﻿
+
+
+var displayerror = function (hasError, message = undefined){
     if (hasError){
         $("#errordiv").removeClass("invisible");
         $("#tablecontainer").addClass("invisible");
@@ -15,7 +18,7 @@
 
 var getDatas = function(){
     if (!!requestedcsv){
-        $.post("/getContent.php", { "type" : requestedcsv },
+        $.post("getContent.php", { "type" : requestedcsv },
             function(ret) {
                 datas = JSON.parse(ret);
                 if (datas.length == 0){
@@ -81,7 +84,7 @@ var progressBarCreator = function(color, laststep, value, text){
 };
 
 var getList = function(){
-    $.post( "/getContent.php", { "type" : "listcsv" },
+    $.post( "getContent.php", { "type" : "listcsv" },
             function(ret) {
                 let csvlist = JSON.parse(ret);
                 updateList(csvlist);
