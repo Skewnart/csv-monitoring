@@ -51,7 +51,8 @@ var updateDatas = function(datas){
             let value = 100 * step / (stepsno - 1);
 
             $($($(this).find("td")[0]).find("div")[0]).html(progressBarCreator(colors[step], step == stepsno - 1, value, actual[1]));
-            _states.push([actual[0], actual[1]]);
+            $($($(this).find("td")[1]).html(actual[2]));
+            _states.push([actual[0], actual[1], actual[2]]);
         }
         else{
             $(this).remove();
@@ -61,19 +62,15 @@ var updateDatas = function(datas){
     datas.forEach(element => {
         let actual = _states.find(el => el[0] == element[0]);
 
+	// Affichage la premiere fois
         if (!actual){
             let step = element[1] == "STOP" ? 0 : (element[1] == "REBOOT" ? 1 : 2);
             let value = 100 * step / (stepsno - 1);
     
-            $("#tablebody").append(
-                $("<tr></tr>").append(
-                    $("<th></th>").attr("scope", "row").text(element[0])
-                ).append(
-                    $("<td></td>").append(
-                        $("<div></div>").addClass("progress").append(progressBarCreator(colors[step], step == stepsno - 1, value, element[1])
-                        )
-                    )
-                )
+            $("#tablebody").append($("<tr></tr>")
+		.append($("<th></th>").attr("scope", "row").text(element[0]))
+		.append($("<td></td>").append($("<div></div>").addClass("progress").append(progressBarCreator(colors[step], step == stepsno - 1, value, element[1]))))
+		.append($("<td></td>").append(element[2]))
             );
         }
     });
