@@ -74,6 +74,8 @@ var updateDatas = function(datas){
             );
         }
     });
+
+    $("#time").html(new Date().toLocaleString());
 };
 
 var progressBarCreator = function(color, laststep, value, text){
